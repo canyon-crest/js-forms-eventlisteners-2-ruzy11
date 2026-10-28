@@ -102,9 +102,9 @@ let sizePrice = 0;
         fee = 1.50;
     } else {
         fee = 3.00;
-    let total = sizePrice + toppingCost + fee;
-      let name = document.getElementById("myInput").value;
     }
+    let total = sizePrice + toppingCost + fee;
+    let name = document.getElementById("myInput").value;
     if (name == "") {
         name = "Customer";
     }
