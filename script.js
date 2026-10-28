@@ -17,7 +17,7 @@
 
 // STEP 1: Get the "Shout" button by its ID ("btnShout")
 //         using document.getElementById()
-
+let btnShout = document.getElementById("btnShout");
 // STEP 2: Add a click event listener to the button.
 //         Inside the listener function:
 //         a) Get the text from the input with ID "shoutInput"
@@ -28,7 +28,11 @@
 //            using .innerHTML
 //
 //         Example: "hello" → "HELLO!"
-
+btnShout.addEventListener("click", function(){
+    let text = document.getElementById("shoutInput").value;
+    let shout = text.toUpperCase() "!";
+    document.getElementById("outShout").innerHTML = shout;
+}
 
 // ============================================
 //  MAIN: Pizza Builder
