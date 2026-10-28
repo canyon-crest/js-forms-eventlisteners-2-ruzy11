@@ -30,9 +30,9 @@ let btnShout = document.getElementById("btnShout");
 //         Example: "hello" → "HELLO!"
 btnShout.addEventListener("click", function(){
     let text = document.getElementById("shoutInput").value;
-    let shout = text.toUpperCase() "!";
+    let shout = text.toUpperCase() + "!";
     document.getElementById("outShout").innerHTML = shout;
-}
+});
 
 // ============================================
 //  MAIN: Pizza Builder
@@ -77,7 +77,39 @@ btnShout.addEventListener("click", function(){
 //      Use .toFixed(2) to format the total.
 //      Example: "Alice, your total is $13.50"
 //      If name is empty, use "Customer" as the default.
-
+let btnCalc = document.getElementById("btnCalc");
+btnCalc.addEventListener("click", function(){
+let sizes = document.getElementsByName("rg");
+let sizePrice = 0;
+ for (let i = 0; i < sizes.length; i++) {
+ if (sizes[i].checked) {
+            sizePrice = parseFloat(sizes[i].value);
+        }
+    }
+     let toppings = document.getElementsByName("cb");
+       let count = 0;
+        for (let i = 0; i < toppings.length; i++) {
+        if (toppings[i].checked) {
+            count++;
+        }
+    }
+     let toppingCost = count * 0.50;
+       let service = document.getElementById("serviceSelect").value;
+    let fee;
+    if (service == "dinein") {
+        fee = 0;
+    } else if (service == "takeout") {
+        fee = 1.50;
+    } else {
+        fee = 3.00;
+    let total = sizePrice + toppingCost + fee;
+      let name = document.getElementById("myInput").value;
+    }
+    if (name == "") {
+        name = "Customer";
+    }
+      document.getElementById("myPara").innerHTML = name + ", your total is $" + total.toFixed(2);
+});
 
 // STEP 4: Get the "Clear" button by ID ("clearBtn")
 //         Add a click event listener.
@@ -87,3 +119,18 @@ btnShout.addEventListener("click", function(){
 //         c) Uncheck ALL topping checkboxes (loop through them)
 //         d) Set the service dropdown value to "dinein"
 //         e) Set the output paragraph innerHTML to ""
+let clearBtn = document.getElementById("clearBtn");
+clearBtn.addEventListener("click", function () {
+    document.getElementById("myInput").value = "";
+
+    document.getElementById("r3").checked = true;
+
+    let toppings = document.getElementsByName("cb");
+    for (let i = 0; i < toppings.length; i++) {
+        toppings[i].checked = false;
+    }
+
+    document.getElementById("serviceSelect").value = "dinein";
+
+    document.getElementById("myPara").innerHTML = "";
+});
